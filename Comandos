@@ -1,0 +1,5 @@
+rails g scaffold usuario nombre:string apellido:string pass:string
+rails g scaffold categoria nombre:string
+rails g scaffold post titulo:string cuerpo:text categoria_id:integer
+rails g scaffold comentario titulo:string cuerpo:string post_id:integer usuario_id:integer
+
