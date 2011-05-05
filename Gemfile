@@ -7,6 +7,10 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 
+group :development, :test do
+  gem 'web-app-theme', '>= 0.6.3'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
