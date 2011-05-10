@@ -1,0 +1,14 @@
+es:
+  categoria:
+    vista:
+      form:
+        por_defecto: "Eliga una categoria"
+
+  activerecord:
+    errors:
+      models:
+        usuario:
+          attributes:
+            password:
+              blank: "No puede estar en blanco"
+

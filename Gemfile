@@ -6,6 +6,8 @@ gem 'rails', '3.0.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'devise'
+gem 'warden'
 
 group :development, :test do
   gem 'web-app-theme', '>= 0.6.3'
@@ -33,3 +35,4 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
+

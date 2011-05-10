@@ -1,11 +1,13 @@
 Dovedeath::Application.routes.draw do
+  devise_for :usuarios
+
+  resources :usuarios
+
   resources :comentarios
 
   resources :posts
 
   resources :categoria
-
-  resources :usuarios
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

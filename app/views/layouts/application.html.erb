@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Web App</title>
+  <title>Mini Blog</title>
   <%= stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/djime-cerulean/style", "web-app-theme/override" %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
@@ -9,12 +9,16 @@
 <body>
   <div id="container">
     <div id="header">
-      <h1><a href="/">Web App</a></h1>
+      <h1><a href="/">Mini Blog</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
-          <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
-          <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
-          <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
+        <%if  usuario_signed_in? %>
+           <li> logueado como <%= current_usuario.email %></li>
+           <li><%= link_to  t("web-app-theme.logout", :default => "Salir"), destroy_usuario_session_path %> </li>
+        <% else %>
+            <li> <%= link_to 'Registrarse', new_usuario_registration_path %>  </li>
+            <li> <%= link_to 'Ingresar', new_usuario_session_path %> </li>
+       <% end %>
         </ul>
       </div>
       <div id="main-navigation">
@@ -33,7 +37,7 @@
         <%= yield %>
         <div id="footer">
           <div class="block">
-            <p>Copyright &copy; <%= Time.now.year %> Web App.</p>
+            <p>Copyright &copy; <%= Time.now.year %> Dovedeath.</p>
           </div>
         </div>
       </div>

@@ -20,10 +20,12 @@
     <%= f.text_area :cuerpo %>
   </div>
   <div class="field">
-    <%= f.label :categoria_id %><br />
-    <%= f.text_field :categoria_id %>
+
+<%= f.select(:categoria_id, @categoria, {:prompt => "#{t "categoria.vista.form.por_defecto"}",
+                                           :order => "nombre"} ) %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
