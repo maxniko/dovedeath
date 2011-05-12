@@ -5,6 +5,7 @@
     <th>Nombre</th>
     <th>Apellido</th>
     <th>Password</th>
+    <th>Email</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,8 +16,9 @@
     <td><%= usuario.nombre %></td>
     <td><%= usuario.apellido %></td>
     <td><%= usuario.password %></td>
+    <td><%= usuario.email %></td>
     <td><%= link_to 'Show', usuario %></td>
-    <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
+    <td><%= link_to 'Edit', edit_usuario_registration_path %></td>
     <td><%= link_to 'Destroy', usuario, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -25,3 +27,4 @@
 <br />
 
 <%= link_to 'New Usuario', new_usuario_path %>
+

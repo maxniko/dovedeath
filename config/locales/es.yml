@@ -12,3 +12,6 @@ es:
             password:
               blank: "No puede estar en blanco"
 
+  application_controller:
+    require_user: "Debes ser administrador para ver este sitio"
+

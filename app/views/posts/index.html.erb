@@ -1,27 +1,36 @@
-<h1>Listing posts</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", posts_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_post_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Posts</h2>
+    <div class="inner">
+      <ul class="list">
+    <% @posts.each do |post| %>
+        <li>
+          <div class="left">
 
-<table>
-  <tr>
-    <th>Titulo</th>
-    <th>Cuerpo</th>
-    <th>Categoria</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+            <a href="#"><img class="avatar" src="images/avatar.png" alt="avatar" /></a>
+          </div>
+          <div class="item">
+            <h3><%= link_to post.titulo, post %></h3><br />
+            <%#= link_to 'Editar', edit_post_path(post) %><br />
+            <%=h post.cuerpo %><br />
+            <strong>Autor: </strong><%=h post.usuario.try(:nombre) %><br />
+        </li>
+    <%#= link_to "#{post.comments.size} comentarios", post   %>
+    <% end %>
+    </ul>
+          </div>
+  <%= will_paginate @posts   %>
+          <div class="actions-bar wat-cf">
+            <div class="actions">
+            </div>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.titulo %></td>
-    <td><%= post.cuerpo %></td>
-    <td><%= post.categoria_id %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+          </div>
+      </div>
+</div>
 
-<br />
-
-<%= link_to 'New Post', new_post_path %>

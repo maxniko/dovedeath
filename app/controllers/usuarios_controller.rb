@@ -1,7 +1,10 @@
 class UsuariosController < ApplicationController
   # GET /usuarios
   # GET /usuarios.xml
+  before_filter :require_admin
+
   def index
+
     @usuarios = Usuario.all
 
     respond_to do |format|
@@ -81,3 +84,4 @@ class UsuariosController < ApplicationController
     end
   end
 end
+

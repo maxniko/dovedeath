@@ -8,6 +8,7 @@ gem 'rails', '3.0.7'
 gem 'sqlite3'
 gem 'devise'
 gem 'warden'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'web-app-theme', '>= 0.6.3'
