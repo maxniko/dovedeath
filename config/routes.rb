@@ -1,4 +1,5 @@
 Dovedeath::Application.routes.draw do
+
   devise_for :usuarios
 
   resources :usuarios

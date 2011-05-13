@@ -8,6 +8,7 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Dovedeath
   class Application < Rails::Application
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -37,11 +38,16 @@ module Dovedeath
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
-
+    config.to_prepare do
+      Devise::SessionsController.layout "sign"
+      Devise::RegistrationsController.layout "sign"
+    end
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+
   end
 end
 
