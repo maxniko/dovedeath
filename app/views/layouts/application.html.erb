@@ -30,6 +30,9 @@
           <li><%= link_to 'Google',"http://www.google.com"  %> </li>
             <% if  usuario_signed_in? %>
               <li><%= link_to 'Categorias', categoria_path %>
+               <% if current_usuario.try(:admin?) %>
+                 <li><%= link_to 'Usuarios', usuarios_path %>
+               <% end %>
             <% end %>
           <% when 1 %>
           <li class="first"> <%= link_to 'INIS',"http://www.inis.uap.edu.ar"  %> </li>
@@ -37,6 +40,19 @@
           <li><%= link_to 'Google',"http://www.google.com"  %> </li>
             <% if  usuario_signed_in? %>
               <li class="active"><%= link_to 'Categorias', categoria_path %>
+               <% if current_usuario.try(:admin?) %>
+                 <li><%= link_to 'Usuarios', usuarios_path %>
+               <% end %>
+            <% end %>
+          <% when 2 %>
+          <li class="first"> <%= link_to 'INIS',"http://www.inis.uap.edu.ar"  %> </li>
+          <li><%= link_to 'Principal',"/"  %> </li>
+          <li><%= link_to 'Google',"http://www.google.com"  %> </li>
+            <% if  usuario_signed_in? %>
+              <li><%= link_to 'Categorias', categoria_path %>
+               <% if current_usuario.try(:admin?) %>
+                 <li class="active"><%= link_to 'Usuarios', usuarios_path %>
+               <% end %>
             <% end %>
           <% else %>
           <li class="first"> <%= link_to 'INIS',"http://www.inis.uap.edu.ar"  %> </li>

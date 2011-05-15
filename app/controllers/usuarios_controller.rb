@@ -4,7 +4,7 @@ class UsuariosController < ApplicationController
   before_filter :require_admin
 
   def index
-
+    menu_principal_seleccion
     @usuarios = Usuario.all
 
     respond_to do |format|
@@ -16,6 +16,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.xml
   def show
+    menu_principal_seleccion
     @usuario = Usuario.find(params[:id])
 
     respond_to do |format|
@@ -27,6 +28,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new
   # GET /usuarios/new.xml
   def new
+    menu_principal_seleccion
     @usuario = Usuario.new
 
     respond_to do |format|
@@ -37,12 +39,14 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
+    menu_principal_seleccion
     @usuario = Usuario.find(params[:id])
   end
 
   # POST /usuarios
   # POST /usuarios.xml
   def create
+    menu_principal_seleccion
     @usuario = Usuario.new(params[:usuario])
 
     respond_to do |format|
@@ -59,6 +63,7 @@ class UsuariosController < ApplicationController
   # PUT /usuarios/1
   # PUT /usuarios/1.xml
   def update
+    menu_principal_seleccion
     @usuario = Usuario.find(params[:id])
 
     respond_to do |format|
@@ -75,6 +80,7 @@ class UsuariosController < ApplicationController
   # DELETE /usuarios/1
   # DELETE /usuarios/1.xml
   def destroy
+    menu_principal_seleccion
     @usuario = Usuario.find(params[:id])
     @usuario.destroy
 
@@ -83,5 +89,9 @@ class UsuariosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  def menu_principal_seleccion
+    session[:seleccion] = 2
+  end
+
 end
 
