@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    #@posts = Post.all
+    menu_principal_seleccion
     @posts = Post.find(:all).paginate :page => params[:page], :order => 'created_at DESC'
 
     respond_to do |format|
@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
+    menu_principal_seleccion
     @post = Post.find(params[:id])
 
     respond_to do |format|
@@ -25,6 +26,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
+    menu_principal_seleccion
     @post = Post.new
     @categoria = Categorium.find(:all, :order => 'nombre ASC').collect {|m| [m.nombre, m.id]}
 
@@ -36,12 +38,14 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    menu_principal_seleccion
     @post = Post.find(params[:id])
   end
 
   # POST /posts
   # POST /posts.xml
   def create
+    menu_principal_seleccion
     @post = Post.new(params[:post])
     @categoria = Categorium.find(:all, :order => 'nombre ASC').collect {|m| [m.nombre, m.id]}
 
@@ -59,6 +63,7 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
+    menu_principal_seleccion
     @post = Post.find(params[:id])
     @categoria = Categorium.find(:all, :order => 'nombre ASC').collect {|m| [m.nombre, m.id]}
 
@@ -76,6 +81,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.xml
   def destroy
+    menu_principal_seleccion
     @post = Post.find(params[:id])
     @post.destroy
 
@@ -83,6 +89,9 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  end
+  def menu_principal_seleccion
+    session[:seleccion] = 0
   end
 end
 

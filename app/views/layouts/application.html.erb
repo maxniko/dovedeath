@@ -12,7 +12,7 @@
       <h1><a href="/">Mini Blog</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
-        <%if  usuario_signed_in? %>
+        <% if  usuario_signed_in? %>
            <li> logueado como <%= current_usuario.email %></li>
            <li><%= link_to  t("web-app-theme.logout", :default => "Salir"), destroy_usuario_session_path %> </li>
         <% else %>
@@ -23,10 +23,29 @@
       </div>
       <div id="main-navigation">
         <ul class="wat-cf">
+          <% case session[:seleccion]
+             when 0 %>
           <li class="first"> <%= link_to 'INIS',"http://www.inis.uap.edu.ar"  %> </li>
           <li class="active"><%= link_to 'Principal',"/"  %> </li>
           <li><%= link_to 'Google',"http://www.google.com"  %> </li>
-          <li><%= link_to 'Categorias', categoria_path %>
+            <% if  usuario_signed_in? %>
+              <li><%= link_to 'Categorias', categoria_path %>
+            <% end %>
+          <% when 1 %>
+          <li class="first"> <%= link_to 'INIS',"http://www.inis.uap.edu.ar"  %> </li>
+          <li><%= link_to 'Principal',"/"  %> </li>
+          <li><%= link_to 'Google',"http://www.google.com"  %> </li>
+            <% if  usuario_signed_in? %>
+              <li class="active"><%= link_to 'Categorias', categoria_path %>
+            <% end %>
+          <% else %>
+          <li class="first"> <%= link_to 'INIS',"http://www.inis.uap.edu.ar"  %> </li>
+          <li class="active"><%= link_to 'Principal',"/"  %> </li>
+          <li><%= link_to 'Google',"http://www.google.com"  %> </li>
+            <% if  usuario_signed_in? %>
+              <li><%= link_to 'Categorias', categoria_path %>
+            <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
