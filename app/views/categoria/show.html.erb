@@ -1,10 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="block" id="block-forms">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><a href="#block-text">Categoria</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Mostrando Categoria</h2>
+    <div class="inner">
 
-<p>
-  <b>Nombre:</b>
-  <%= @categorium.nombre %>
-</p>
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <b>Nombre:</b>
+      <%= @categorium.nombre %>
+    </p>
 
 
-<%= link_to 'Edit', edit_categorium_path(@categorium) %> |
-<%= link_to 'Back', categoria_path %>
+    <%= link_to 'Edit', edit_categorium_path(@categorium) %> |
+    <%= link_to 'Back', categoria_path %>
+
+    </div>
+  </div>
+</div>
+
