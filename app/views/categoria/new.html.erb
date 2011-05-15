@@ -2,11 +2,12 @@
 <div class="block" id="block-forms">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><a href="#block-text">Categoria</a></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Listado")}", categoria_path  %></li>
+      <li class="active"><a href="#block-text">Nueva Categoria</a></li>
     </ul>
   </div>
   <div class="content">
-    <h2 class="title">Nueva Categoria</h2>
+    <h2 class="title">Categoria</h2>
     <div class="inner">
     <%= render 'form' %>
 
