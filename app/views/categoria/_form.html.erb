@@ -1,21 +1,20 @@
-<%= form_for(@categorium) do |f| %>
-  <% if @categorium.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@categorium.errors.count, "error") %> prohibited this categorium from being saved:</h2>
+  <%= form_for(@categorium, :html => { :class => "form"})  do |f| %>
+    <div class="group">
+      <div class="fieldWithErrors">
+         <%= f.label :nombre, :class => "label", :for => "post_title" %><!--label class="label" for="post_title">Title</label-->
 
-      <ul>
-      <% @categorium.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      </div>
+      <%= f.text_field :nombre,:class =>  "text_field"%>
+       <span class="description">Ej: Una simple descripción</span>
+    </div>
+    <div class="group navform wat-cf">
+      <button class="button" type="submit">
+        <%= image_tag("icons/tick.png", :alt=> "Guardar")%>Guardar
+      </button>
+       <a href="/categoria" class="button">
+        <%= image_tag("icons/cross.png", :alt=> "Cancelar")%> Cancelar
+      </a>
+
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
