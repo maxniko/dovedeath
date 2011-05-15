@@ -5,55 +5,49 @@
       <li><%= link_to "#{t("web-app-theme.new", :default => "Nueva Categoria")}", new_categorium_path %></li>
     </ul>
   </div>
+  <div id="block-tables" class="block">
+    <div class="content">
+    <h2 class="title">Listing categoria</h2>
+      <div class="inner">
+        <form class="form" action="#">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="first">ID</th>
 
-
-<div id="block-tables" class="block">
-<div class="content">
-
-<h2 class="title">Listing categoria</h2>
-<div class="inner">
-<form class="form" action="#">
-<table class="table">
- <tbody>
-  <tr>
-    <th class="first">ID</th>
-
-    <th>Nombre</th>
-    <th></th>
-    <th></th>
-    <th class="last"></th>
-  </tr>
-<% numerosecuencia = 0 %>
-<% @categoria.each do |categorium| %>
-  <%if numerosecuencia == 0
-       numerosecuencia = 1%>
-  <tr class="odd">
-    <th><%= categorium.id %></th>
-    <td><%= categorium.nombre %></td>
-    <td><%= link_to 'Show', categorium %></td>
-    <td><%= link_to 'Edit', edit_categorium_path(categorium) %></td>
-    <td class="last"><%= link_to 'Destroy', categorium, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-  <% else
-        numerosecuencia = 0%>
-  <tr class="even">
-    <th><%= categorium.id %></th>
-    <td><%= categorium.nombre %></td>
-    <td><%= link_to 'Show', categorium %></td>
-    <td><%= link_to 'Edit', edit_categorium_path(categorium) %></td>
-    <td class="last"><%= link_to 'Destroy', categorium, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-  <% end %>
-<% end %>
-</tbody>
-</table>
-
-<br />
-
-
-</form>
-</div>
-</div>
-</div>
+                <th>Nombre</th>
+                <th></th>
+                <th></th>
+                <th class="last"></th>
+              </tr>
+              <% numerosecuencia = 0 %>
+              <% @categoria.each do |categorium| %>
+               <% if numerosecuencia == 0
+                     numerosecuencia = 1%>
+              <tr class="odd">
+                <th><%= categorium.id %></th>
+                <td><%= categorium.nombre %></td>
+                <td><%= link_to 'Show', categorium %></td>
+                <td><%= link_to 'Edit', edit_categorium_path(categorium) %></td>
+                <td class="last"><%= link_to 'Destroy', categorium, :confirm => 'Are you sure?', :method => :delete %></td>
+              </tr>
+              <% else
+                    numerosecuencia = 0%>
+              <tr class="even">
+                <th><%= categorium.id %></th>
+                <td><%= categorium.nombre %></td>
+                <td><%= link_to 'Show', categorium %></td>
+                <td><%= link_to 'Edit', edit_categorium_path(categorium) %></td>
+                <td class="last"><%= link_to 'Destroy', categorium, :confirm => 'Are you sure?', :method => :delete %></td>
+              </tr>
+              <% end %>
+            <% end %>
+            </tbody>
+          </table>
+          <br />
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 

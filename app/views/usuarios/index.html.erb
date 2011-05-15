@@ -1,4 +1,4 @@
-<h1>Listing usuarios</h1>
+<!--h1>Listing usuarios</h1>
 
 <table>
   <tr>
@@ -15,16 +15,67 @@
   <tr>
     <td><%= usuario.nombre %></td>
     <td><%= usuario.apellido %></td>
-    <td><%= usuario.password %></td>
     <td><%= usuario.email %></td>
     <td><%= link_to 'Show', usuario %></td>
     <td><%= link_to 'Edit', edit_usuario_registration_path %></td>
     <td><%= link_to 'Destroy', usuario, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
-</table>
+</table-->
 
-<br />
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", usuarios_path  %></li>
+      <!--li><%= link_to "#{t("web-app-theme.new", :default => "Nuevo Usuario")}", new_usuario_registration_path  %></li-->
+    </ul>
+  </div>
+  <div id="block-tables" class="block">
+    <div class="content">
+    <h2 class="title">Listando Usuarios</h2>
+      <div class="inner">
+        <form class="form" action="#">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th class="first">ID</th>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>&nbsp;</th>
+                <th class="last"></th>
+              </tr>
+              <% numerosecuencia = 0 %>
+              <% @usuarios.each do |usuario| %>
+               <% if numerosecuencia == 0
+                     numerosecuencia = 1%>
+              <tr class="odd">
+                <td><%= usuario.nombre %></td>
+                <td><%= usuario.apellido %></td>
+                <td><%= usuario.email %></td>
+                <td><%= link_to 'Show', usuario %></td>
+                <td><%= link_to 'Edit', edit_usuario_registration_path %></td>
+                <td class="last"><%= link_to 'Destroy', usuario, :confirm => 'Estás seguro?', :method => :delete %></td>
+              </tr>
+              <% else
+                    numerosecuencia = 0%>
+              <tr class="even">
+                <td><%= usuario.nombre %></td>
+                <td><%= usuario.apellido %></td>
+                <td><%= usuario.email %></td>
+                <td><%= link_to 'Show', usuario %></td>
+                <td><%= link_to 'Edit', edit_usuario_registration_path %></td>
+                <td class="last"><%= link_to 'Destroy', usuario, :confirm => 'Estás seguro?', :method => :delete %></td>
+              </tr>
+              <% end %>
+            <% end %>
+            </tbody>
+          </table>
+          <br />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
