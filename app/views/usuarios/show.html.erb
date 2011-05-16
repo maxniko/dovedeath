@@ -1,20 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="block" id="block-forms">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><a href="#block-text">Usuario</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Mostrando Usuario</h2>
+    <div class="inner">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Nombre:</b>
-  <%= @usuario.nombre %>
-</p>
+    <p>
+      <b>Nombre:</b>
+      <%= @usuario.nombre %>
+    </p>
 
-<p>
-  <b>Apellido:</b>
-  <%= @usuario.apellido %>
-</p>
+    <p>
+      <b>Apellido:</b>
+      <%= @usuario.apellido %>
+    </p>
 
-<p>
-  <b>Password:</b>
-  <%= @usuario.password %>
-</p>
+    <p>
+      <b>Email:</b>
+      <%= @usuario.email %>
+    </p>
 
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+    <%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+    <%= link_to 'Back', usuarios_path %>
+    </div>
+  </div>
+</div>
+
