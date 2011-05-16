@@ -17,7 +17,7 @@
           </div>
           <div class="item">
             <h3><%= link_to post.titulo, post %></h3><br />
-            <%#= link_to 'Editar', edit_post_path(post) %><br />
+            <%#= link_to "Editar", edit_post_path(post) %><br />
             <%=h post.cuerpo %><br />
             <strong>Autor: </strong><%=h post.usuario.try(:nombre) %><br />
         </li>
