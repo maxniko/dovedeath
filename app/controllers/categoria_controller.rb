@@ -1,9 +1,9 @@
 class CategoriaController < ApplicationController
+  before_filter :menu_principal_seleccion
 
   # GET /categoria
   # GET /categoria.xml
   def index
-    menu_principal_seleccion
     @categoria = Categorium.all
 
     respond_to do |format|
@@ -15,7 +15,6 @@ class CategoriaController < ApplicationController
   # GET /categoria/1
   # GET /categoria/1.xml
   def show
-    menu_principal_seleccion
     @categorium = Categorium.find(params[:id])
 
     respond_to do |format|
@@ -27,7 +26,6 @@ class CategoriaController < ApplicationController
   # GET /categoria/new
   # GET /categoria/new.xml
   def new
-    menu_principal_seleccion
     @categorium = Categorium.new
 
     respond_to do |format|
@@ -38,14 +36,12 @@ class CategoriaController < ApplicationController
 
   # GET /categoria/1/edit
   def edit
-    menu_principal_seleccion
     @categorium = Categorium.find(params[:id])
   end
 
   # POST /categoria
   # POST /categoria.xml
   def create
-    menu_principal_seleccion
     @categorium = Categorium.new(params[:categorium])
 
     respond_to do |format|
@@ -62,7 +58,6 @@ class CategoriaController < ApplicationController
   # PUT /categoria/1
   # PUT /categoria/1.xml
   def update
-    menu_principal_seleccion
     @categorium = Categorium.find(params[:id])
 
     respond_to do |format|
@@ -79,7 +74,6 @@ class CategoriaController < ApplicationController
   # DELETE /categoria/1
   # DELETE /categoria/1.xml
   def destroy
-    menu_principal_seleccion
     @categorium = Categorium.find(params[:id])
     @categorium.destroy
 
