@@ -13,6 +13,7 @@
       <div id="user-navigation">
         <ul class="wat-cf">
         <% if  usuario_signed_in? %>
+           <li> <%= link_to "Mi Cuenta", edit_usuario_registration_path    %></li>
            <li> logueado como <%= current_usuario.email %></li>
            <li><%= link_to  t("web-app-theme.logout", :default => "Salir"), destroy_usuario_session_path %> </li>
         <% else %>
