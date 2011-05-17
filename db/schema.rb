@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517130956) do
+ActiveRecord::Schema.define(:version => 20110517141742) do
 
   create_table "categoria", :force => true do |t|
     t.string   "nombre"
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(:version => 20110517130956) do
   create_table "posts", :force => true do |t|
     t.string   "titulo"
     t.text     "cuerpo"
-    t.integer  "categorium_id"
     t.integer  "usuario_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "categorium_id"
   end
 
   create_table "usuarios", :force => true do |t|
