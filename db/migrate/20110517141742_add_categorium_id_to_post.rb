@@ -1,5 +1,6 @@
 class AddCategoriumIdToPost < ActiveRecord::Migration
   def self.up
+    remove_column :posts, :categoria_id
     add_column :posts, :categorium_id, :integer
   end
 
@@ -7,3 +8,4 @@ class AddCategoriumIdToPost < ActiveRecord::Migration
     remove_column :posts, :categorium_id
   end
 end
+

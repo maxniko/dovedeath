@@ -16,12 +16,12 @@
      </div>
     <%= f.text_field :titulo,:class =>  "text_field" %>
   </div>
-  <div class="field">
+  <div class="group">
     <%= f.label :cuerpo,:class => "label" %>
     <%= f.text_area :cuerpo, :cols=> "80", :rows=> "10", :class=> "text_area"%>
     <span class="description">Write here a long text</span>
   </div>
-  <div class="field">
+  <div class="group">
 
 <%= f.select(:categorium_id, @categoria, {:prompt => "#{t "categoria.vista.form.por_defecto"}",
                                            :order => "nombre"} ) %>

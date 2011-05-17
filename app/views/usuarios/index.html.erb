@@ -1,7 +1,7 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", usuarios_path  %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Listado")}", usuarios_path  %></li>
       <!--li><%= link_to "#{t("web-app-theme.new", :default => "Nuevo Usuario")}", new_usuario_registration_path  %></li-->
     </ul>
   </div>
@@ -33,7 +33,7 @@
                 <td><%= usuario.email %></td>
                 <td><%= usuario.admin %></td>
                 <td><%= link_to 'Show', usuario %></td>
-                <td><%= link_to 'Edit', edit_usuario_registration_path %></td>
+                <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
                 <td class="last"><%= link_to 'Destroy', usuario, :confirm => 'Estás seguro?', :method => :delete %></td>
               </tr>
               <% else
@@ -45,7 +45,7 @@
                 <td><%= usuario.email %></td>
                 <td><%= usuario.admin %></td>
                 <td><%= link_to 'Show', usuario %></td>
-                <td><%= link_to 'Edit', edit_usuario_registration_path %></td>
+                <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
                 <td class="last"><%= link_to 'Destroy', usuario, :confirm => 'Estás seguro?', :method => :delete %></td>
               </tr>
               <% end %>
