@@ -22,8 +22,9 @@
 
     <p>
       <b>Categoria:</b>
-      <%= @post.categorium_id %>
+      <%= @post.categorium.nombre %>
     </p>
+
 
 
     <%= link_to 'Edit', edit_post_path(@post) %> |
