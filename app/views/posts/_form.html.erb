@@ -25,6 +25,7 @@
 
 <%= f.select(:categorium_id, @categoria, {:prompt => "#{t "categoria.vista.form.por_defecto"}",
                                            :order => "nombre"} ) %>
+<%= f.hidden_field(:usuario_id, :value => current_usuario.id )%>
   </div>
 </br>
   <div class="group navform wat-cf">
