@@ -1,9 +1,9 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", posts_path  %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "De Todo")}", posts_path  %></li>
       <% if usuario_signed_in? %>
-        <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_post_path %></li>
+        <li><%= link_to "#{t("web-app-theme.new", :default => "Nuevo Post")}", new_post_path %></li>
       <% end %>
     </ul>
   </div>
