@@ -54,7 +54,4 @@ ActiveRecord::Schema.define(:version => 20110517141742) do
     t.boolean  "admin"
   end
 
-  add_index "usuarios", ["email"], :name => "index_usuarios_on_email", :unique => true
-  add_index "usuarios", ["reset_password_token"], :name => "index_usuarios_on_reset_password_token", :unique => true
-
 end

@@ -1,18 +1,21 @@
   <%= form_for(@categorium, :html => { :class => "form"})  do |f| %>
   <% if @categorium.errors.any? %>
     <div id="error_explanation">
+      <div class="flash">
       <h2><%= pluralize(@categorium.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @categorium.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <div  class="error">
+          <ul>
+          <% @categorium.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
   <% end %>
     <div class="group">
       <div class="fieldWithErrors">
-         <%= f.label :nombre, :class => "label", :for => "post_title" %><!--label class="label" for="post_title">Title</label-->
+         <%= f.label :nombre, :class => "label", :for => "post_title" %>
 
       </div>
       <%= f.text_field :nombre,:class =>  "text_field"%>
