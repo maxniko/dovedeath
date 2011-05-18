@@ -1,4 +1,4 @@
-<div class="block" id="block-forms">
+<div class="block" id="block-text">
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first active"><a href="#block-text">Post</a></li>
@@ -38,13 +38,40 @@
         </p>
         <p><%= h cmt.cuerpo %></p>
       <% end %>
-      <% form_for [@post, Comentario.new] do |f| %>
+    </div> 
+  </div>
+</div>
+<div class="block" id="block-forms">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><a href="#block-forms">Nuevo Comentario</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="inner">
+      <%form_for ([@post, @comentario], :html => { :class => "form"}) do |f| %>
+      <% if @comentario.errors.any? %>
+        <div id="error_explanation">
+          <div class="flash">
+            <div class="message error">
+              <% case @comentario.errors.count
+                 when 1 %>
+                 <h3><%= @comentario.errors.count  %> error prohibe que el post sea guardado:</h3>
+              <% else %>
+                 <h3><%= @comentario.errors.count  %> errores prohiben que el post sea guardado:</h3>
+              <% end %>
+              <% @comentario.errors.full_messages.each do |msg| %>
+                <p><%= msg %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
         <p>
-          <br/><h2>Nuevo comentario:</h2>
           <%= f.hidden_field(:usuario_id, :value => current_usuario.id )%>
           <div class="group">
-            <%= f.label :label_comentario, "Comentario" %>(*)<br />
-            <%= f.text_area :cuerpo, :class=>"tex_tarea"%><br />
+            <%= f.label :label_comentario, "Comentario (*)", :class=>"label" %>
+            <%= f.text_area :cuerpo, :class=>"text_area"%><br />
             (*) campos obligatorios
           </div>
         </p>
@@ -61,4 +88,27 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
