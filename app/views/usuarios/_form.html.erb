@@ -1,13 +1,19 @@
 <%= form_for(@usuario, :html => { :class => "form"}) do |f| %>
   <% if @usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
-
-      <ul>
-      <% @usuario.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+     <div id="error_explanation">
+      <div class="flash">
+        <div class="message error">
+          <% case @usuario.errors.count
+             when 1 %>
+             <h3><%= @usuario.errors.count  %> error prohibe que el usuario sea guardado:</h3>
+          <% else %>
+             <h3><%= @usuario.errors.count  %> errores prohiben que el usuario sea guardado:</h3>
+          <% end %>
+          <% @usuario.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 

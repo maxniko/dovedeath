@@ -3,7 +3,23 @@
   <div class="content">
 
     <%= form_for(resource, :as => resource_name,:url => registration_path(resource_name), :html => { :class => "form"}) do |f| %>
-    <%= devise_error_messages! %>
+    <% if resource.errors.any? %>
+      <div id="error_explanation">
+        <div class="flash">
+          <div class="message error">
+            <% case resource.errors.count
+               when 1 %>
+               <h3><%= resource.errors.count  %> error prohibe que puedas registrarte:</h3>
+            <% else %>
+               <h3><%= resource.errors.count  %> errores prohiben que puedas registrarte:</h3>
+            <% end %>
+            <% resource.errors.full_messages.each do |msg| %>
+              <p><%= msg %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
       <div class="group wat-cf">
         <div class="left">
          <label class="label">Nombre</label>

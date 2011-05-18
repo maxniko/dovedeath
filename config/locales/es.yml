@@ -17,11 +17,24 @@ es:
               blank: "no debe quedar en blanco"
             email:
               blank: "no debe quedar en blanco"
+            current_password:
+              blank: "siempre debes poner tu contraseña actual para que se actualize tu cuenta"
         categorium:
           attributes:
             nombre:
               blank: "no debe quedar en blanco"
-
+        post:
+          attributes:
+            titulo:
+              blank: "no debe quedar en blanco"
+            cuerpo:
+              blank: "no debe quedar en blanco"
+            categorium:
+              blank: "no debe quedar en blanco"
   application_controller:
     require_user: "Debes ser administrador para ver este sitio"
+
+  errors:
+    messages:
+      not_saved: "La siguiente lista de errores prohibe que usted se registre:"
 

@@ -3,7 +3,12 @@
     <div id="error_explanation">
       <div class="flash">
         <div class="message error">
-          <h2><%= pluralize(@categorium.errors.count, "error") %> prohibited this post from being saved:</h2>
+          <% case @categorium.errors.count
+             when 1 %>
+             <h3><%= @categorium.errors.count  %> error prohibe que la categoria sea guardada:</h3>
+          <% else %>
+             <h3><%= @categorium.errors.count  %> errores prohiben que la categoria sea guardada:</h3>
+          <% end %>
           <% @categorium.errors.full_messages.each do |msg| %>
             <p><%= msg %></p>
           <% end %>
