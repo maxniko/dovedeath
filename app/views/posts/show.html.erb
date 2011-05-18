@@ -7,28 +7,50 @@
   <div class="content">
     <h2 class="title">Mostrando Un Post</h2>
     <div class="inner">
+      <p id="notice"><%= notice %></p>
+      <p>
+        <b>Titulo:</b>
+        <%= @post.titulo %>
+      </p>
 
-    <p id="notice"><%= notice %></p>
+      <p>
+        <b>Cuerpo:</b>
+        <%= @post.cuerpo %>
+      </p>
 
-    <p>
-      <b>Titulo:</b>
-      <%= @post.titulo %>
-    </p>
+      <p>
+        <b>Categoria:</b>
+        <%= @post.categorium.nombre %>
+      </p>
+      
+      <p>
+        <strong>Autor:</strong>
+        <%=h @post.usuario.try(:nombre) %>
+      </p>
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+      <%= link_to 'Back', posts_path %>
 
-    <p>
-      <b>Cuerpo:</b>
-      <%= @post.cuerpo %>
-    </p>
-
-    <p>
-      <b>Categoria:</b>
-      <%= @post.categorium.nombre %>
-    </p>
-
-
-
-    <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Back', posts_path %>
+      <h2>Comentarios:</h2>
+      <% @post.comentarios.each do |cmt| %>
+        <p>
+          <strong><%= h cmt.usuario.try(:nombre) %> dijo: </strong> <br />
+          <%#= time_ago_in_words(cmt.created_at) %> ago
+        </p>
+        <p><%= h cmt.cuerpo %></p>
+      <% end %>
+      <% form_for [@post, Comentario.new] do |f| %>
+        <p>
+          <br/><h2>Nuevo comentario:</h2>
+          <%= f.hidden_field(:usuario_id, :value => current_usuario.id )%>
+          <%= f.label :label_comentario, "Comentario" %>(*)<br />
+          <%= f.text_area :cuerpo %><br />
+          (*) campos obligatorios
+        </p>
+        <p>
+          <%= f.submit "Guardar comentario" %>
+        </p>
+      <% end %>
+      
 
     </div>
   </div>
