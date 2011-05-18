@@ -1,5 +1,8 @@
 Dovedeath::Application.routes.draw do
 
+  get "posts/ipsum"
+  match 'ipsum' => "posts#ipsum", :as => :ipsum
+
   devise_for :usuarios
 
   resources :usuarios

@@ -1,6 +1,19 @@
-<h1>Editing post</h1>
+<div class="block" id="block-forms">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "De Todo")}", posts_path  %></li>
+      <li class="active"><a href="#block-text">Cambiando Post</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Cambiando Post</h2>
+    <div class="inner">
 
-<%= render 'form' %>
+    <%= render 'form' %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+    <%= link_to 'Show', @post %> |
+    <%= link_to 'Back', posts_path %>
+    </div>
+  </div>
+</div>
+
