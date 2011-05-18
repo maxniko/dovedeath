@@ -24,17 +24,13 @@
             <%=h post.cuerpo %><br />
             <strong>Autor: </strong><%=h post.usuario.try(:nombre) %><br />
             <%= link_to "#{post.comentarios.size} comentarios", post   %>
-        </li>
-    <%#= link_to "#{post.comments.size} comentarios", post   %>
-    <% end %>
-    </ul>
-          </div>
-  <%= will_paginate @posts   %>
-          <div class="actions-bar wat-cf">
-            <div class="actions">
-            </div>
-
-          </div>
+          </li>
+        <% end %>
+        </ul>
       </div>
+    <div class="actions-bar wat-cf"> 
+      <%= will_paginate @posts   %>
+    </div>
+  </div>
 </div>
 
