@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'warden'
 gem 'will_paginate'
+gem 'faker'
 
 group :development, :test do
   gem 'web-app-theme', '>= 0.6.3'
