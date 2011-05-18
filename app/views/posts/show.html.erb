@@ -34,7 +34,7 @@
       <% @post.comentarios.each do |cmt| %>
         <p>
           <strong><%= h cmt.usuario.try(:nombre) %> dijo: </strong> <br />
-          <%#= time_ago_in_words(cmt.created_at) %> ago
+          <%#= time_ago_in_words(cmt.created_at) %> 
         </p>
         <p><%= h cmt.cuerpo %></p>
       <% end %>
@@ -42,16 +42,22 @@
         <p>
           <br/><h2>Nuevo comentario:</h2>
           <%= f.hidden_field(:usuario_id, :value => current_usuario.id )%>
-          <%= f.label :label_comentario, "Comentario" %>(*)<br />
-          <%= f.text_area :cuerpo %><br />
-          (*) campos obligatorios
+          <div class="group">
+            <%= f.label :label_comentario, "Comentario" %>(*)<br />
+            <%= f.text_area :cuerpo, :class=>"tex_tarea"%><br />
+            (*) campos obligatorios
+          </div>
         </p>
-        <p>
-          <%= f.submit "Guardar comentario" %>
-        </p>
-      <% end %>
-      
+        <div class="group navform wat-cf">
+          <button class="button" type="submit">
+            <%= image_tag("icons/tick.png", :alt=> "Guardar")%>Guardar
+          </button>
+          <a href="/posts" class="button">
+            <%= image_tag("icons/cross.png", :alt=> "Cancelar")%> Cancelar
+          </a>
 
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include Faker
    before_filter :menu_principal_seleccion
 
   # GET /posts
@@ -88,8 +89,8 @@ class PostsController < ApplicationController
 
   def ipsum
     @post = Post.new
-    @post.titulo = "Esto es aleatorio"
-    @post.cuerpo = "No lo crees, pues créelo"
+    @post.titulo = Lorem.sentence
+    @post.cuerpo = Lorem.paragraphs
     @categoria = Categorium.find(:all, :order => 'nombre ASC').collect {|m| [m.nombre, m.id]}
     @categorias = Categorium.find(:all, :order => 'nombre ASC')
     @categorium = @categorias[rand(@categorias.size)]
