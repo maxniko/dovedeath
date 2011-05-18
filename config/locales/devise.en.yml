@@ -3,48 +3,41 @@
 en:
   errors:
     messages:
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      already_confirmed: "was already confirmed, please try signing in"
-      not_locked: "was not locked"
-      not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+      not_found: "no encontrado"
+      already_confirmed: "ya ha sido confirmado"
+      not_locked: "no está bloqueado"
 
   devise:
-    failure:
-      already_authenticated: 'You are already signed in.'
-      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
-      invalid: 'Invalid email or password.'
-      invalid_token: 'Invalid authentication token.'
-      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
     sessions:
-      signed_in: 'Signed in successfully.'
-      signed_out: 'Signed out successfully.'
+      link: 'Ingresar'
+      signed_in: 'Has ingresado correctamente.'
+      signed_out: 'Has salido correctamente.'
+      unauthenticated: 'Debes ingresar como usuario registrado antes de continuar.'
+      unconfirmed: 'Debes confirmar '
+      locked: 'Tu cuenta est&aacute; boqueada.'
+      invalid: 'El usuario y/o la contraseña son incorrectos.'
+      invalid_token: 'Token de autenticaticación incorrecto.'
+      timeout: 'Tu sesión ha caducado. Por favor, vuelve a ingresar.'
+      inactive: 'Tu cuenta todavia no ha sido activada.'
     passwords:
-      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
-      updated: 'Your password was changed successfully. You are now signed in.'
+      link: '¿Olvidaste tu contraseña?'
+      send_instructions: 'En unos minutos recibirás un email con las instrucciones de como redefinir tu contraseña.'
+      updated: 'Has cambiado correctamente tu contraseña. Automaticamente se ha iniciado tu sesión.'
     confirmations:
-      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
-      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+      link: "¿No has recibido las instrucciones de confirmación?"
+      send_instructions: 'En unos minutos recibirás un email con las instrucciones de como confirmar tu cuenta. '
+      confirmed: 'Tu cuenta ha sido confirmada correctamente. Automaticamente se ha iniciado tu sesión.'
     registrations:
-      signed_up: 'Welcome! You have signed up successfully.'
-      inactive_signed_up: 'You have signed up successfully. However, we could not sign you in because your account is %{reason}.'
-      updated: 'You updated your account successfully.'
-      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      link: 'Registrarse'
+      signed_up: 'Te has registrado correctamente. Se ha enviado una confirmación a tu email. Revísalo por favor.'
+      updated: 'Actualizaste tu cuenta correctamente.'
+      destroyed: 'Adios! Has cancelado tu cuenta correctamente. Esperamos verte por aquí otra vez...'
     unlocks:
-      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
-      unlocked: 'Your account was successfully unlocked. You are now signed in.'
-    omniauth_callbacks:
-      success: 'Successfully authorized from %{kind} account.'
-      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+      link: "¿No has recibido las instrucciones de desbloqueo?"
+      send_instructions: 'En unos minutos recibirás un email con las instrucciones de como desbloquear tu cuenta.'
+      unlocked: 'Tu cuenta ha sido desbloqueada correctamente. Automaticamente se ha iniciado tu sesión'
     mailer:
-      confirmation_instructions:
-        subject: 'Confirmation instructions'
-      reset_password_instructions:
-        subject: 'Reset password instructions'
-      unlock_instructions:
-        subject: 'Unlock Instructions'
+      confirmation_instructions: 'Instrucciones de confirmación de tu cuenta'
+      reset_password_instructions: 'Instrucciones para cambiar la contraseña de tu cuenta'
+      unlock_instructions: 'Instrucciones de desbloqueo de tu cuenta'
+
