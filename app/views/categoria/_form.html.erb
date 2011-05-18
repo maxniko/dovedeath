@@ -2,13 +2,13 @@
   <% if @categorium.errors.any? %>
     <div id="error_explanation">
       <div class="flash">
-      <h2><%= pluralize(@categorium.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <div class="notice">
+          <h2><%= pluralize(@categorium.errors.count, "error") %> prohibited this post from being saved:</h2>
+        </div>
         <div  class="error">
-          <ul>
           <% @categorium.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+            <p><%= msg %></p>
           <% end %>
-          </ul>
         </div>
       </div>
     </div>
