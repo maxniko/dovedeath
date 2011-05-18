@@ -1,5 +1,5 @@
 class CategoriaController < ApplicationController
-  before_filter :menu_principal_seleccion
+  before_filter :menu_principal_seleccion, :authenticate_user!
 
   # GET /categoria
   # GET /categoria.xml
