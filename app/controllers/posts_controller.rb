@@ -86,6 +86,21 @@ class PostsController < ApplicationController
     end
   end
 
+  def ipsum
+    @post = Post.new
+    @post.titulo = "Esto es aleatorio"
+    @post.cuerpo = "No lo crees, pues créelo"
+    @categoria = Categorium.find(:all, :order => 'nombre ASC').collect {|m| [m.nombre, m.id]}
+    @categorias = Categorium.find(:all, :order => 'nombre ASC')
+    @categorium = @categorias[rand(@categorias.size)]
+    @post.categorium = @categorium
+
+    respond_to do |format|
+      format.html { render :action => "new" }# ipsum.html.erb
+      format.xml  { render :xml => [@post, @categoria] }
+    end
+  end
+
 
   def menu_principal_seleccion
     session[:seleccion] = 0

@@ -82,9 +82,11 @@ PLATFORMS
 
 DEPENDENCIES
   devise
+
   faker
   rails (= 3.0.7)
   sqlite3
   warden
   web-app-theme (>= 0.6.3)
   will_paginate
+

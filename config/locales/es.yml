@@ -10,7 +10,17 @@ es:
         usuario:
           attributes:
             password:
-              blank: "No puede estar en blanco"
+              blank: "no debe quedar en blanco"
+            apellido:
+              blank: "no debe quedar en blanco"
+            nombre:
+              blank: "no debe quedar en blanco"
+            email:
+              blank: "no debe quedar en blanco"
+        categorium:
+          attributes:
+            nombre:
+              blank: "no debe quedar en blanco"
 
   application_controller:
     require_user: "Debes ser administrador para ver este sitio"
