@@ -1,7 +1,14 @@
 class ComentariosController < ApplicationController
+  before_filter :authenticate_usuario!
+  
+  def create
+    @post=Post.find(params[:post_id])
+    @comentario=@post.comentarios.create!(params[:comentario])
+    redirect_to @post
+  end
   # GET /comentarios
   # GET /comentarios.xml
-  def index
+=begin  def index
     @comentarios = Comentario.all
 
     respond_to do |format|
@@ -80,4 +87,5 @@ class ComentariosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+=end
 end

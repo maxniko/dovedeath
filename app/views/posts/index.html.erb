@@ -23,6 +23,7 @@
             <%#= link_to "Editar", edit_post_path(post) %><br />
             <%=h post.cuerpo %><br />
             <strong>Autor: </strong><%=h post.usuario.try(:nombre) %><br />
+            <%= link_to "#{post.comentarios.size} comentarios", post   %>
         </li>
     <%#= link_to "#{post.comments.size} comentarios", post   %>
     <% end %>
