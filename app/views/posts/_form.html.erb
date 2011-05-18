@@ -1,13 +1,14 @@
 <%= form_for(@post, :html => { :class => "form"}) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+      <div class="flash">
+        <div class="message error">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+          <% @post.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
     <div class="group">
