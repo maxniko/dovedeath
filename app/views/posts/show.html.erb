@@ -1,7 +1,8 @@
 <div class="block" id="block-text">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><a href="#block-text">Post</a></li>
+       <li class="first "><%= link_to "#{t("web-app-theme.list", :default => "De Todo")}", posts_path  %></li>
+      <li class="active"><a href="#block-text">Post</a></li>
     </ul>
   </div>
   <div class="content">
@@ -20,98 +21,96 @@
 
       <p>
         <b>Categoria:</b>
-        <%= @post.categorium.nombre %>
+        <%= @post.categorium.try(:nombre) %>
       </p>
-      
+
       <p>
         <strong>Autor:</strong>
         <%=h @post.usuario.try(:nombre) %>
       </p>
       <%= link_to 'Edit', edit_post_path(@post) %> |
       <%= link_to 'Back', posts_path %>
-      <%if current_usuario.id == @post.usuario_id%>
-        <%= link_to 'Eliminar', @post, :confirm => 'Estás seguro?', :method => :delete %>
-      <%end%>
-
+      <% if usuario_signed_in? %>
+        <% if current_usuario.id == @post.usuario_id%>
+          <%= link_to 'Eliminar', @post, :confirm => 'Estás seguro?', :method => :delete %>
+        <% end %>
+      <% end %>
       <h2>Comentarios:</h2>
       <% @post.comentarios.each do |cmt| %>
         <p>
           <strong><%= h cmt.usuario.try(:nombre) %> dijo: </strong> <br />
-          <%#= time_ago_in_words(cmt.created_at) %> 
         </p>
         <p><%= h cmt.cuerpo %></p>
-      <% end %>
-    </div> 
-  </div>
-</div>
-<div class="block" id="block-forms">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><a href="#block-forms">Nuevo Comentario</a></li>
-    </ul>
-  </div>
-  <div class="content">
-    <div class="inner">
-      <%form_for ([@post, @comentario], :html => { :class => "form"}) do |f| %>
-      <% if @comentario.errors.any? %>
-        <div id="error_explanation">
-          <div class="flash">
-            <div class="message error">
-              <% case @comentario.errors.count
-                 when 1 %>
-                 <h3><%= @comentario.errors.count  %> error prohibe que el post sea guardado:</h3>
-              <% else %>
-                 <h3><%= @comentario.errors.count  %> errores prohiben que el post sea guardado:</h3>
-              <% end %>
-              <% @comentario.errors.full_messages.each do |msg| %>
-                <p><%= msg %></p>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-        <p>
-          <%= f.hidden_field(:usuario_id, :value => current_usuario.id )%>
-          <div class="group">
-            <%= f.label :label_comentario, "Comentario (*)", :class=>"label" %>
-            <%= f.text_area :cuerpo, :class=>"text_area"%><br />
-            (*) campos obligatorios
-          </div>
-        </p>
-        <div class="group navform wat-cf">
-          <button class="button" type="submit">
-            <%= image_tag("icons/tick.png", :alt=> "Guardar")%>Guardar
-          </button>
-          <a href="/posts" class="button">
-            <%= image_tag("icons/cross.png", :alt=> "Cancelar")%> Cancelar
-          </a>
-
-        </div>
+        <% if usuario_signed_in? %>
+          <% if current_usuario.id == @post.usuario_id || current_usuario.id == cmt.usuario_id %>
+            <%= link_to 'Eliminar', cmt, :confirm => 'Estás seguro?', :method => :delete %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>
 </div>
+<% if usuario_signed_in? %>
+  <div class="block" id="block-forms">
+    <div class="secondary-navigation">
+      <ul class="wat-cf">
+        <li class="first"><a href="#block-forms">Nuevo Comentario</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="inner">
+        <%form_for ([@post, @comentario], :html => { :class => "form"}) do |f| %>
+        <% if @comentario.errors.any? %>
+          <div id="error_explanation">
+            <div class="flash">
+              <div class="message error">
+                <% case @comentario.errors.count
+                   when 1 %>
+                   <h3><%= @comentario.errors.count  %> error prohibe que el post sea guardado:</h3>
+                <% else %>
+                   <h3><%= @comentario.errors.count  %> errores prohiben que el post sea guardado:</h3>
+                <% end %>
+                <% @comentario.errors.full_messages.each do |msg| %>
+                  <p><%= msg %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+          <p>
+            <%= f.hidden_field(:usuario_id, :value => current_usuario.id )%>
+            <div class="group">
+              <%= f.label :label_comentario, "Comentario (*)", :class=>"label" %>
+              <%= f.text_area :cuerpo, :class=>"text_area"%><br />
+              (*) campos obligatorios
+            </div>
+          </p>
+          <div class="group navform wat-cf">
+            <button class="button" type="submit">
+              <%= image_tag("icons/tick.png", :alt=> "Guardar")%>Guardar
+            </button>
+            <a href="/posts" class="button">
+              <%= image_tag("icons/cross.png", :alt=> "Cancelar")%> Cancelar
+            </a>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="block" id="block-forms">
+    <div class="secondary-navigation">
+      <ul class="wat-cf">
+        <li class="first"><a href="#block-forms">Nuevo Comentario</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="inner">
+      <h2> Si quiere comentar, regístrese primero <h2>
+      <%= link_to "Registrarse", new_usuario_registration_path %>
+      </div>
+  </div>
+</div>
+<% end %>
 

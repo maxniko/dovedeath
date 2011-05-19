@@ -1,6 +1,6 @@
 class ComentariosController < ApplicationController
   before_filter :authenticate_usuario!
-  
+
   def create
     @post=Post.find(params[:post_id])
     @comentario=@post.comentarios.create!(params[:comentario])
@@ -53,7 +53,7 @@ class ComentariosController < ApplicationController
       if @comentario.save
         format.html { redirect_to(@comentario, :notice => 'Comentario was successfully created.') }
         format.xml  { render :xml => @comentario, :status => :created, :location => @comentario }
-      else
+      elsecomentarios/1
         format.html { render :action => "new" }
         format.xml  { render :xml => @comentario.errors, :status => :unprocessable_entity }
       end
@@ -75,7 +75,7 @@ class ComentariosController < ApplicationController
       end
     end
   end
-
+=end
   # DELETE /comentarios/1
   # DELETE /comentarios/1.xml
   def destroy
@@ -83,9 +83,10 @@ class ComentariosController < ApplicationController
     @comentario.destroy
 
     respond_to do |format|
-      format.html { redirect_to(comentarios_url) }
+      format.html { redirect_to (posts_url) }
       format.xml  { head :ok }
     end
   end
-=end
+
 end
+
