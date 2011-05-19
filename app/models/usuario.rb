@@ -6,7 +6,7 @@ class Usuario < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nombre, :apellido, :admin
-  has_many :posts
+  has_many :posts, :dependent => :restrict
   validates_presence_of :nombre, :apellido
 end
 

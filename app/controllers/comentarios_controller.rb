@@ -96,10 +96,11 @@ class ComentariosController < ApplicationController
   # DELETE /comentarios/1.xml
   def destroy
     @comentario = Comentario.find(params[:id])
+    as = @comentario.post_id
     @comentario.destroy
-
+    @post = Post.find(as)
     respond_to do |format|
-      format.html { redirect_to (posts_url) }
+      format.html { redirect_to (@post) }
       format.xml  { head :ok }
     end
   end

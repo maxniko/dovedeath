@@ -39,6 +39,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @categoria = Categorium.find(:all, :order => 'nombre ASC').collect {|m| [m.nombre, m.id]}
   end
 
   # POST /posts
