@@ -76,11 +76,16 @@ class UsuariosController < ApplicationController
   # DELETE /usuarios/1.xml
   def destroy
     @usuario = Usuario.find(params[:id])
-    @usuario.destroy
 
     respond_to do |format|
-      format.html { redirect_to(usuarios_url) }
-      format.xml  { head :ok }
+      if @usuario.posts.size == 0
+        @usuario.destroy
+        format.html { redirect_to(usuarios_url) }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to(usuarios_url, :alert => 'No se pudo eliminar porque hay posts que ha escrito el usuario.') }
+        format.xml  { head :ok }
+      end
     end
   end
   def menu_principal_seleccion

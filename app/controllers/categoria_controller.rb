@@ -76,14 +76,15 @@ class CategoriaController < ApplicationController
   def destroy
     @categorium = Categorium.find(params[:id])
 
-
     respond_to do |format|
-      if @categorium.destroy
+      if @categorium.posts.size == 0
+         @categorium.destroy
+
         format.html { redirect_to(categoria_url) }
         format.xml  { head :ok }
       else
-        format.html { redirect_to(categoria_url) }
-        format.xml  { head :error}
+        format.html { redirect_to(categoria_url, :alert => 'No se pudo eliminar porque hay posts que utilizan la categoria.') }
+        format.xml  { head :ok }
       end
     end
   end

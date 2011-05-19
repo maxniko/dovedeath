@@ -3,8 +3,24 @@ class ComentariosController < ApplicationController
 
   def create
     @post=Post.find(params[:post_id])
-    @comentario=@post.comentarios.create!(params[:comentario])
-    redirect_to @post
+    #@comentario=@post.comentarios.create!(params[:comentario])
+    #redirect_to @post
+
+    @comentario= Comentario.new(params[:comentario])
+
+    respond_to do |format|
+      if @comentario.cuerpo == ""
+          format.html { redirect_to(@post, :alert => 'No se pudo guardar porque no ha escrito nada que sea un comentario.') }
+          format.xml  { head :ok }
+      else
+        @comentario=@post.comentarios.create!(params[:comentario])
+        #redirect_to @post
+        format.html { redirect_to(@post) }
+        format.xml  { head :ok }
+      end
+    end
+
+
   end
   # GET /comentarios
   # GET /comentarios.xml
