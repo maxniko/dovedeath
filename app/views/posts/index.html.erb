@@ -15,8 +15,42 @@
     <% @posts.each do |post| %>
         <li>
           <div class="left">
-
-            <a href="#"><img class="avatar" src="images/avatar.png" alt="avatar" /></a>
+            <% case rand(15)
+                 when 0 %>
+                <%= link_to image_tag("block r.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 1 %>
+                <%= link_to image_tag("block b.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 2 %>
+                <%= link_to image_tag("block g.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 3 %>
+                <%= link_to image_tag("block o.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 4 %>
+                <%= link_to image_tag("BigEyes_Creature _256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 5 %>
+                <%= link_to image_tag("black_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 6 %>
+                <%= link_to image_tag("BlackPower_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 7 %>
+                <%= link_to image_tag("blue_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 8 %>
+                <%= link_to image_tag("brown_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 9 %>
+                <%= link_to image_tag("green_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 10 %>
+                <%= link_to image_tag("orange_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 11 %>
+                <%= link_to image_tag("pink_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 12 %>
+                <%= link_to image_tag("red_creature _256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 13 %>
+                 <%= link_to image_tag("Tentacles_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 14 %>
+                 <%= link_to image_tag("tie_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% when 15 %>
+               <%= link_to image_tag("white_creature_256x256.png", :alt => "avatar", :class => "avatar"),post %>
+              <% else %>
+                <%= link_to image_tag("avatar.png", :alt => "avatar", :class => "avatar"),post %>
+            <% end %>
           </div>
           <div class="item">
             <h3><%= link_to post.titulo, post %></h3><br />
