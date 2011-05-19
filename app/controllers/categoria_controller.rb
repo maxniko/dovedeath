@@ -75,11 +75,16 @@ class CategoriaController < ApplicationController
   # DELETE /categoria/1.xml
   def destroy
     @categorium = Categorium.find(params[:id])
-    @categorium.destroy
+
 
     respond_to do |format|
-      format.html { redirect_to(categoria_url) }
-      format.xml  { head :ok }
+      if @categorium.destroy
+        format.html { redirect_to(categoria_url) }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to(categoria_url) }
+        format.xml  { head :error}
+      end
     end
   end
 
